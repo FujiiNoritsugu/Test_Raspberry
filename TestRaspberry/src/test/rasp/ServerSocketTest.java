@@ -8,11 +8,6 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.pi4j.io.serial.Serial;
-import com.pi4j.io.serial.SerialDataEvent;
-import com.pi4j.io.serial.SerialDataListener;
-import com.pi4j.io.serial.SerialFactory;
-
 public class ServerSocketTest {
 
 	ExecutorService service;
@@ -28,20 +23,20 @@ public class ServerSocketTest {
 	    {
 		try {
 	        // create an instance of the serial communications class
-	        final Serial serial = SerialFactory.createInstance();
-
-	        // create and register the serial data listener
-	        serial.addListener(new SerialDataListener() {
-	            @Override
-	            public void dataReceived(SerialDataEvent event) {
-	                // print out the data received to the console
-	                System.out.print(event.getData());
-	            }
-	        });
+//	        final Serial serial = SerialFactory.createInstance();
+//
+//	        // create and register the serial data listener
+//	        serial.addListener(new SerialDataListener() {
+//	            @Override
+//	            public void dataReceived(SerialDataEvent event) {
+//	                // print out the data received to the console
+//	                System.out.print(event.getData());
+//	            }
+//	        });
 
 			try {
 				serverSoc = new ServerSocket(80);
-	            serial.open(Serial.DEFAULT_COM_PORT, 38400);
+//	            serial.open(Serial.DEFAULT_COM_PORT, 38400);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -56,9 +51,9 @@ public class ServerSocketTest {
 	      while(true){
 
 	          String command = reader.readLine();
-	          String [] commandArray = command.split(":");
+	          //String [] commandArray = command.split(":");
 
-	          serial.writeln(commandArray[0], commandArray[1]);
+	          //serial.writeln(commandArray[0], commandArray[1]);
 
 	          System.out.println("Message from client :" + command);
 
