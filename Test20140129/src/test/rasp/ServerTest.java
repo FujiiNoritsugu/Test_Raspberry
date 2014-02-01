@@ -8,15 +8,15 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ServerSocketTest {
+public class ServerTest {
 
 	ExecutorService service;
-	ControlThread controlThread;
+	ClientTest controlThread;
     static ServerSocket serverSoc = null;
 
-	public ServerSocketTest(){
+	public ServerTest(){
 		service = Executors.newFixedThreadPool(10);
-		controlThread = new ControlThread();
+		controlThread = new ClientTest();
 	}
 
 		public static void main(String[] args)
